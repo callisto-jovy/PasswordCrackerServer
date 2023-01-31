@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d3d13b-e0d2-4f6b-82d1-ee6f28759931" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/AbiturListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/Distributor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/DistributorServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/util/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/util/ZipUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/util/packet/Packet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/util/packet/PacketUtil.java" afterDir="false" />
+    <list default="true" id="29d3d13b-e0d2-4f6b-82d1-ee6f28759931" name="Changes" comment="Initial Commit - old version">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/Distributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/Distributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/DistributorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/server/DistributorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/util/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bplaced/abzzezz/util/ListUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +22,13 @@
       <list>
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="old" />
+      </map>
     </option>
   </component>
   <component name="MacroExpansionManager">
@@ -106,6 +103,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -120,11 +118,25 @@
       <workItem from="1674761611193" duration="581000" />
       <workItem from="1674804401472" duration="3788000" />
       <workItem from="1674835148332" duration="12293000" />
-      <workItem from="1674847952375" duration="689000" />
+      <workItem from="1674847952375" duration="3107000" />
+      <workItem from="1674851069229" duration="519000" />
+      <workItem from="1674909049968" duration="7807000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit - old version">
+      <created>1674849054554</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674849054554</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit - old version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit - old version" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 package net.bplaced.abzzezz.server;
 
-import net.bplaced.abzzezz.util.ZipUtil;
+import net.bplaced.abzzezz.util.ListUtil;
 import net.bplaced.abzzezz.util.packet.Packet;
 import net.bplaced.abzzezz.util.packet.PacketUtil;
 
@@ -19,11 +19,14 @@ public class DistributorServer extends Server {
     public DistributorServer() {
         super(5000);
         System.out.println("Starting server");
+
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(() -> {
             System.out.println("\n--------------------------");
             System.out.println("Current character bounds:");
-            System.out.printf("Min Bound %d, Length %d", DISTRIBUTOR.getCurrentMinBound(), DISTRIBUTOR.getLength());
+            System.out.printf("Byte skip / bytes read %d, %d characters read%n", DISTRIBUTOR.getCurrentByteIndex(), DISTRIBUTOR.getCurrentByteIndex() / 8);
+            System.out.printf("Total words read %d%n", DISTRIBUTOR.getWordsRead());
+            System.out.printf("Invalid lengths %s", DISTRIBUTOR.getInvalidLengths());
             System.out.println("\n--------------------------");
         }, 8, 15, TimeUnit.SECONDS);
     }
@@ -31,7 +34,7 @@ public class DistributorServer extends Server {
     public void processNewConnection(String clientIp, int clientPort) {
         DISTRIBUTOR.addClient(clientIp, clientPort);
 
-        final String base64 = ZipUtil.convertZipToBase64();
+        final String base64 = ListUtil.convertZipToBase64();
         this.send(clientIp, clientPort, new Packet("START", base64).toString());
         System.out.println("A new client has been connected. The ZIP data was sent.");
     }
@@ -43,15 +46,21 @@ public class DistributorServer extends Server {
             this.closeConnection(clientIp, clientPort);
         } else {
             final Packet packet = PacketUtil.packetFromString(message);
+
             switch (packet.getSignature()) {
                 //The client is ready to receive instructions or needs a new range of characters to try.
-                case "READY", "UNSUCCESSFUL":
-                    final int[] bounds = DISTRIBUTOR.getBounds();
-                    final String length = String.valueOf(DISTRIBUTOR.getLength());
-                    final String lowerBound = String.valueOf(bounds[0]);
-                    final String upperBound = String.valueOf(bounds[1]);
-
-                    send(clientIp, clientPort, new Packet("RANGE", lowerBound, upperBound, length).toString());
+                case "READY":
+                    send(clientIp, clientPort, new Packet("WORDS", DISTRIBUTOR.getWords()).toString());
+                    send(clientIp, clientPort, new Packet("RANGE", String.valueOf(DISTRIBUTOR.getRange())).toString());
+                    break;
+                case "UNSUCCESSFUL WORD":
+                    send(clientIp, clientPort, new Packet("WORDS", DISTRIBUTOR.getWords()).toString());
+                    break;
+                case "UNSUCCESSFUL RANGE":
+                    //Remove range from possible ranges.
+                    final int length = Integer.parseInt(packet.getArguments().get(0));
+                    DISTRIBUTOR.addToInvalid(length);
+                    send(clientIp, clientPort, new Packet("RANGE", String.valueOf(DISTRIBUTOR.getRange())).toString());
                     break;
                 case "SUCCESS":
                     DISTRIBUTOR.reset();

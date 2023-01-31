@@ -4,8 +4,7 @@ import net.bplaced.abzzezz.server.DistributorServer;
 
 public class Main {
     public static void main(String[] args) {
-       final DistributorServer distributorServer = new DistributorServer();
-
+        final DistributorServer distributorServer = new DistributorServer();
     }
 
 }
